@@ -1,18 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Amazon.Extensions.Configuration.SystemsManager.Internal;
-using Amazon.SimpleSystemsManagement.Model;
-using Moq;
 using Xunit;
 
 namespace Amazon.Extensions.Configuration.SystemsManager.Tests
 {
     public class JsonConfigurationProviderTests
     {
-
-        public JsonConfigurationProviderTests()
-        {
-        }
 
         [Fact]
         public void ProcessParametersTest()
@@ -32,9 +25,6 @@ namespace Amazon.Extensions.Configuration.SystemsManager.Tests
                         ""value2""
                     ]
             }";
-
-            //TODO Spilt this up into separate test cases.
-
 
             var parsed = JsonConfigurationParser.Parse(input);
 

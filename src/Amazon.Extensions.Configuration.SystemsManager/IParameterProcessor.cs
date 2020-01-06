@@ -38,7 +38,7 @@ namespace Amazon.Extensions.Configuration.SystemsManager
         /// </summary>
         /// <param name="parameter"><see cref="Parameter"/> to be processed</param>
         /// <param name="path">Path used when retrieving the <see cref="Parameter"/></param>
-        /// <returns> key value pairs</returns>
+        /// <returns>The Configuration Pair</returns>
         IEnumerable<KeyValuePair<string,string>> Process(Parameter input, string path);
     }
 }

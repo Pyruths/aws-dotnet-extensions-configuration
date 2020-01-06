@@ -84,6 +84,7 @@ namespace Amazon.Extensions.Configuration.SystemsManager.Internal
 
                 if (!Source.ParameterProcessor.IncludeParameter(response.Parameter, SecretsManagerPath)) return new Dictionary<string, string>();
 
+                // A secret should only be one value.
                 var parameter = Source.ParameterProcessor.Process(response.Parameter, SecretsManagerPath).Single();
                 return AddPrefix(JsonConfigurationParser.Parse(parameter.Value), Source.Prefix ?? parameter.Key);
 
