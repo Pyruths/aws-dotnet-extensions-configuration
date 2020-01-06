@@ -136,18 +136,5 @@ namespace Amazon.Extensions.Configuration.SystemsManager
                     throw;
             }
         }
-
-        [Obsolete("This method has been moved into the internal namespace, and will be removed in a future release. Use ParameterProcessor instead")]
-        public static IDictionary<string, string> ProcessParameters(IEnumerable<Parameter> parameters, string path, IParameterProcessor parameterProcessor)
-        {
-            return parameters
-                .Where(parameter => parameterProcessor.IncludeParameter(parameter, path))
-                .Select(parameter => new
-                {
-                    Key = parameterProcessor.GetKey(parameter, path),
-                    Value = parameterProcessor.GetValue(parameter, path)
-                })
-                .ToDictionary(parameter => parameter.Key, parameter => parameter.Value, StringComparer.OrdinalIgnoreCase);
-        }
     }
 }
